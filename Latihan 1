@@ -1,0 +1,33 @@
+def urutin_list(l):
+    panjang = len(l)
+    for i in range(panjang):
+        for j in range(0, panjang - i - 1):
+            if l[j] > l[j + 1]:
+                l[j], l[j + 1] = l[j + 1], l[j]
+    return l
+
+def cari_angka(l, target):
+    awal = 0
+    akhir = len(l) - 1
+    
+    while awal <= akhir:
+        tengah = (awal + akhir) // 2
+        if l[tengah] == target:
+            return tengah
+        elif l[tengah] < target:
+            awal = tengah + 1
+        else:
+            akhir = tengah - 1
+    return -1
+
+if __name__ == "__main__":
+    list_angka = [34, 2, 87, 15, 89, 56, 31, 28, 200, 23]
+    
+    target = int(input("Masukkan Angka: "))
+    
+    list_angka = urutin_list(list_angka)
+    print("\nTablenya\n")
+    print(list_angka)
+    
+    print(f"\nTargetnya: {target}\n")
+    

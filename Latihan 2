@@ -1,0 +1,18 @@
+def bubble_sort_recursive(data, length=None):
+    if length is None:
+        length = len(data)
+
+    if length == 1:
+        return
+
+    for i in range(length - 1):
+        if data[i] > data[i + 1]:
+            data[i], data[i + 1] = data[i + 1], data[i]
+
+    bubble_sort_recursive(data, length - 1)
+
+if __name__ == "__main__":
+    angka = [87, 56, 34, 23, 89, 15, 2, 200, 28, 31]
+    print("List Sebelum Disorting:", angka)
+    bubble_sort_recursive(angka)
+    print("List Yang Sudah Disorting:", angka)
